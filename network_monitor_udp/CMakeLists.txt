@@ -71,5 +71,5 @@ catkin_install_python(PROGRAMS nodes/network_watchdog.py nodes/sample_bwtest.py 
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 install(FILES launch_nodes.launch
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
