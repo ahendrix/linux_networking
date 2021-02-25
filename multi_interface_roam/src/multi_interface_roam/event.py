@@ -2,7 +2,7 @@
 
 from __future__ import with_statement
 
-import thread
+import _thread
 import weakref
 
 # TODO:
