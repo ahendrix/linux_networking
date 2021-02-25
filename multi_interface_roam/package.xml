@@ -48,5 +48,6 @@
   <!-- <test_depend>asmach</test_depend> -->
   <!-- <test_depend>dynamic_reconfigure</test_depend> -->
   <!-- <test_depend>ieee80211_channels</test_depend> -->
+  <test_depend>python-twisted-core</test_depend>
 
 </package>
