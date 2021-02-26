@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
 # TODO To cleanup: 
 # - Mark on ping packets in not being used.
