@@ -2,7 +2,7 @@
 
 from __future__ import with_statement
 
-import multi_interface_roam.event
+from . import event
 import copy
 
 # TODO

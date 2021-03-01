@@ -8,7 +8,7 @@ import os
 from twisted.internet import protocol, reactor
 from twisted.internet.defer import Deferred, inlineCallbacks
 import sys
-import multi_interface_roam.command_with_output # There is a SIGCHLD hack in there that we want to run
+from . import command_with_output # There is a SIGCHLD hack in there that we want to run
 
 class Quiet:
     pass
