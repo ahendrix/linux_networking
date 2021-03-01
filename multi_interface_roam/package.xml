@@ -36,7 +36,8 @@
   <run_depend>asmach</run_depend>
   <run_depend>dynamic_reconfigure</run_depend>
   <run_depend>ieee80211_channels</run_depend>
-  <run_depend>python3-twisted</run_depend>
+  <run_depend condition="$ROS_PYTHON_VERSION == 2">python-twisted-core</run_depend>
+  <run_depend condition="$ROS_PYTHON_VERSION == 3">python3-twisted</run_depend> 
 
   <!-- Dependencies needed only for running tests. -->
   <!-- <test_depend>rospy</test_depend> -->
