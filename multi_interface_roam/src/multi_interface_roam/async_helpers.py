@@ -3,10 +3,10 @@ from twisted.internet.defer import Deferred, DeferredQueue, inlineCallbacks, ret
 from twisted.internet import reactor
 from twisted.internet.protocol import Protocol
 from collections import deque
-from weakcallback import WeakCallbackCb
+from multi_interface_roam.weakcallback import WeakCallbackCb
 import weakref
 import sys
-from event import Unsubscribe, Event
+from multi_interface_roam.event import Unsubscribe, Event
 
 # FIXME Add test for ReadDescrEventStream
 
