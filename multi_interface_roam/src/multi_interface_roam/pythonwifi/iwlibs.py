@@ -110,7 +110,8 @@ def getConfiguredWNICnames():
             wifi = Wireless(ifname)
             try:
                 result = wifi.getAPaddr()
-            except IOError, (errno, strerror):
+            except IOError as e:
+                errno, strerror = e.args
                 # don't stop on an individual error
                 pass
             if result[0] == 0:
@@ -1207,7 +1208,7 @@ class Iwpoint(object):
 
     def __init__(self, data=None, flags=0):
         if data is None:
-            raise ValueError, "data must be passed to Iwpoint"
+            raise ValueError("data must be passed to Iwpoint")
         # P pointer to data, H length, H flags
         self.fmt = 'PHH'
         self.flags = flags
@@ -1413,7 +1414,8 @@ class Iwscan(object):
                 status, result = iwstruct.iw_get_ext(self.ifname,
                                                 flags.SIOCGIWSCAN,
                                                 data=datastr)
-            except IOError, (error_number, error_string):
+            except IOError as e:
+                error_number, error_string = e.args
                 if error_number == errno.E2BIG:
                     # Keep resizing the buffer until it's
                     #   large enough to hold the scan
@@ -1479,7 +1481,7 @@ class Iwscan(object):
             if scanresult.bssid != "00:00:00:00:00:00":
                 aplist.append(scanresult)
             else:
-                raise RuntimeError, 'Attempting to add an AP without a bssid'
+                raise RuntimeError('Attempting to add an AP without a bssid')
         return aplist
 
 
@@ -1561,18 +1563,18 @@ class Iwscanresult(object):
                               This command is not allowed.")
 
     def display(self):
-        print "ESSID:", self.essid
-        print "Access point:", self.bssid
-        print "Mode:", self.mode
+        print("ESSID:", self.essid)
+        print("Access point:", self.bssid)
+        print("Mode:", self.mode)
         if len(self.rate) > 0:
-            print "Highest Bitrate:", self.rate[len(self.rate)-1]
-        print "Quality: Quality ", self.quality.quality,
-        print "Signal ", self.quality.getSignallevel(),
-        print " Noise ", self.quality.getNoiselevel()
-        print "Encryption:", map(lambda x: hex(ord(x)), self.encode)
+            print("Highest Bitrate:", self.rate[len(self.rate)-1])
+        print("Quality: Quality ", self.quality.quality, end=' ')
+        print("Signal ", self.quality.getSignallevel(), end=' ')
+        print(" Noise ", self.quality.getNoiselevel())
+        print("Encryption:", map(lambda x: hex(ord(x)), self.encode))
         # XXX
         # print "Frequency:", self.frequency.getFrequency(), "(Channel", self.frequency.getChannel(self.range), ")"
         for custom in self.custom:
-            print "Custom:", custom
-        print ""
+            print("Custom:", custom)
+        print("")
 

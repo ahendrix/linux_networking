@@ -123,15 +123,15 @@ class MultiInterfaceDiagPublisher:
         self.wifi_sub_pub = dict((iface, rospy.Publisher(self.wireless_namespace+"/"+iface+"/accesspoint", AccessPoint)) for iface in wireless_interfaces)
 
         self.hostname = os.uname()[1]
-        print
-        print "**************************************************************"
-        print mir.log_time_string(time.time()), "restarting."
-        print "**************************************************************"
+        print()
+        print("**************************************************************")
+        print(mir.log_time_string(time.time()), "restarting.")
+        print("**************************************************************")
         mir.main(config_file, mir.SimpleSelectionStrategy, self.publish_diags)
-        print "**************************************************************"
-        print "Exiting."
-        print "**************************************************************"
-        print
+        print("**************************************************************")
+        print("Exiting.")
+        print("**************************************************************")
+        print()
         rospy.signal_shutdown("main has exited")
 
     @staticmethod
@@ -190,10 +190,10 @@ class MultiInterfaceDiagPublisher:
         
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-      print >> sys.stderr
-      print >> sys.stderr, "usage: roam_node.py config_file.yaml"
-      print >> sys.stderr
-      print >> sys.stderr, "This node cannot presently be used with roslaunch as it will be confused by the __name and __log parameters."
+      print(file=sys.stderr)
+      print("usage: roam_node.py config_file.yaml", file=sys.stderr)
+      print(file=sys.stderr)
+      print("This node cannot presently be used with roslaunch as it will be confused by the __name and __log parameters.", file=sys.stderr)
       sys.exit(1)
     
     rospy.init_node("multi_interface_roam", disable_rosout=True, disable_rostime=True, disable_signals=True)

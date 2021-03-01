@@ -89,7 +89,7 @@ class NetworkWatchdog:
         try:
             self.action()
         except Exception:
-            print "Caught exception during action."
+            print("Caught exception during action.")
             traceback.print_exc(10)
         now = rospy.get_time()
         with self.mutex:  
@@ -196,7 +196,7 @@ def main():
     except KeyboardInterrupt:
         pass
     if nw.action_running:
-        print "Waiting for trigger command to complete."
+        print("Waiting for trigger command to complete.")
 
 if __name__ == "__main__":
     main()

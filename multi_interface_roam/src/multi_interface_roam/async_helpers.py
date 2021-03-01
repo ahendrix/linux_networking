@@ -227,7 +227,7 @@ def unittest_with_reactor(run_ros_tests):
                 import unittest
                 unittest.main()
             exitval.append(0)
-        except SystemExit, v:
+        except SystemExit as v:
             exitval.append(v.code)
         except:
             import traceback

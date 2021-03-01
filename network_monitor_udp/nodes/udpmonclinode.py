@@ -48,5 +48,5 @@ if __name__ == "__main__":
             cli.shutdown()
 
     except KeyboardInterrupt:
-        print >> sys.stderr, "Exiting on CTRL+C."
+        print("Exiting on CTRL+C.", file=sys.stderr)
 
