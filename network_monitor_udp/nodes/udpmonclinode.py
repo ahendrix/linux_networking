@@ -10,7 +10,7 @@ from network_monitor_udp.udpmoncli import MonitorClient
 
 if __name__ == "__main__":
     try:
-    	rospy.init_node('udpmonclinode', anonymous=True)
+        rospy.init_node('udpmonclinode', anonymous=True)
         host = rospy.get_param("~host")
         port = int(rospy.get_param("~port", 1234))
         rate = float(rospy.get_param("~pkt_rate", 100.0)) 

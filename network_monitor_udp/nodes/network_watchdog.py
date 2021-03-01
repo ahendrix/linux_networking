@@ -176,7 +176,7 @@ class Action:
 
 def main():
     try:
-    	rospy.init_node('udp_monitor_watchdog', anonymous=True)
+        rospy.init_node('udp_monitor_watchdog', anonymous=True)
 
         timeout = rospy.get_param("~timeout", 120)
         max_latency = rospy.get_param("~max_latency", 0.5)
