@@ -6,7 +6,7 @@ import os
 from twisted.internet import protocol, reactor
 from twisted.internet.defer import Deferred, inlineCallbacks
 import sys
-import multi_interface_roam.command_with_output # There is a SIGCHLD hack in there that we want to run
+import command_with_output # There is a SIGCHLD hack in there that we want to run
 
 class Quiet:
     pass
@@ -63,7 +63,7 @@ class System(protocol.ProcessProtocol):
         d = Deferred()
         self.shutdown_deferreds.append(d)
         if self.proc:
-            print ("Killing command:", self.args)
+            print "Killing command:", self.args
             self.proc.signalProcess("INT")
         else:
             d.callback()
@@ -73,12 +73,12 @@ def system(*args):
     debug = False
     if debug:
         import time
-        print (time.time(), "system: ", args)
+        print time.time(), "system: ", args
     #print "system: ", args
     s = System(*args)
     if debug:
         def printout(value):
-            print (time.time(), "system done: ", args)
+            print time.time(), "system done: ", args
             return value
         s.deferred.addCallback(printout)
     return s.deferred
