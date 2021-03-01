@@ -1,5 +1,7 @@
 #! /usr/bin/env python
 
+from __future__ import print_function
+
 # TODO To cleanup: 
 # - Mark on ping packets in not being used.
 # - Most gateway packets should go through the tunnel.
