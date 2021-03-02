@@ -2,8 +2,8 @@
 Changelog for package network_monitor_udp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.1.0 (2021-03-02)
+------------------
 * Merge pull request `#6 <https://github.com/pr2/linux_networking/issues/6>`_ from k-okada/add_noetic_travis
 * add more from __future_\_ import print_function
 * fix indent/space mixture
